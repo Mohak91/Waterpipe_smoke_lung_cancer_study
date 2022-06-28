@@ -14,6 +14,18 @@ INPUT_FOR_RFFI="tumor_mutational_burden_random_forest_feature_importance_analysi
 R_SCRIPT_RF="tmb_random_forest_feature_importance_analysis.R"
 TMB_RF_FEATURE_IMPORTANCE_PDF="percentage_incMSE_tmb_factors.pdf"
 
+__prog_name__ = 'tumor_mutational_burden_analysis_tcga_between_cohorts.py'
+__prog_desc__ = 'Compare Tumor Mutational Burden on a TCGA dataset between smokers and non-smokers and run random forest regression based feature importance for patient metadata.'
+
+__author__ = 'Mohak Sharda'
+__copyright__ = 'Copyright 2022'
+__credits__ = ['Mohak Sharda']
+__license__ = 'GPL3'
+__version__ = '0.0.1'
+__maintainer__ = 'Mohak Sharda'
+__email__ = 'mohaks@ncbs.res.in'
+__status__ = 'Development'
+
 import os
 
 class TumorMutationalBurdenAnalysis(object):
@@ -212,6 +224,10 @@ class RandomForestFeatureImportanceAnalysis(TumorMutationalBurdenAnalysis):
         os.system("Rscript %s"%R_SCRIPT_RF)
 
 if __name__=="__main__":
+    
+    print(__prog_name__ + ' v' + __version__ + ': ' + __prog_desc__)
+    print('  by ' + __author__ + ' (' + __email__ + ')' + '\n')
+    
     tcga_dataset=TumorMutationalBurdenAnalysis()
     tcga_dataset.run_tmb_analysis(MAF,BOTH_IDS,SHORTER_ID)
     tmb_dataset=RandomForestFeatureImportanceAnalysis()
