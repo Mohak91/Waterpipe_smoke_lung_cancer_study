@@ -11,6 +11,10 @@ import os.path
 from os import path
 
 class GenerateMaf(object):
+    
+    def __init__(self):
+        """Initialization."""
+        pass
 
     def run_cell_line_analysis(self,VCF,VCF_MERGED,MAF_MERGED):
         subdir_list=glob("%s/*/"%VCF)
