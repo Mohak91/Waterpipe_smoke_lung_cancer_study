@@ -10,6 +10,18 @@ import os
 import os.path
 from os import path
 
+__prog_name__ = 'running_vcf2_maf_merge_nontreated_treated_samples.py'
+__prog_desc__ = 'Annotates vcf files, using Variant Effect Predictor, into merged maf files for normal (control) and sample (tumor) samples'
+
+__author__ = 'Mohak Sharda'
+__copyright__ = 'Copyright 2022'
+__credits__ = ['Mohak Sharda']
+__license__ = 'GPL3'
+__version__ = '0.0.1'
+__maintainer__ = 'Mohak Sharda'
+__email__ = 'mohaks@ncbs.res.in'
+__status__ = 'Development'
+
 class GenerateMaf(object):
     
     def __init__(self):
@@ -102,5 +114,9 @@ class GenerateMaf(object):
         return dir_suffix
 
 if __name__=="__main__":
+    
+    print(__prog_name__ + ' v' + __version__ + ': ' + __prog_desc__)
+    print('  by ' + __author__ + ' (' + __email__ + ')' + '\n')
+    
     run_pipeline=GenerateMaf()
     run_pipeline.run_cell_line_analysis(VCF,VCF_MERGED,MAF_MERGED)
